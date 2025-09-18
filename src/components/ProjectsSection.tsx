@@ -1,0 +1,214 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { Project } from '@/types';
+import { facultyApi } from '@/lib/api';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Button } from '@/components/ui/button';
+import {
+  Briefcase,
+  DollarSign,
+  Calendar,
+  User,
+  Building2,
+  Clock,
+  ArrowRight,
+} from 'lucide-react';
+
+export default function ProjectsSection() {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const data = await facultyApi.getProjects();
+        setProjects(data);
+      } catch (err) {
+        // Silently handle errors and use placeholder data
+        console.warn('Using placeholder data for projects section:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  const getStatusBadgeVariant = (status: string) => {
+    switch (status.toLowerCase()) {
+      case 'ongoing':
+        return 'default';
+      case 'completed':
+        return 'secondary';
+      case 'proposed':
+        return 'outline';
+      default:
+        return 'outline';
+    }
+  };
+
+  if (loading) {
+    return (
+      <section id="projects" className="section-padding bg-background">
+        <div className="container-custom">
+          <Skeleton className="h-12 w-64 mx-auto mb-16" />
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {[...Array(3)].map((_, i) => (
+              <Card key={i} className="bg-card/50 rounded-xl shadow-lg">
+                <CardHeader>
+                  <Skeleton className="h-6 w-3/4" />
+                  <Skeleton className="h-4 w-1/4" />
+                </CardHeader>
+                <CardContent>
+                  <Skeleton className="h-20 w-full" />
+                  <div className="mt-4 space-y-2">
+                    <Skeleton className="h-4 w-full" />
+                    <Skeleton className="h-4 w-2/3" />
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Skeleton className="h-10 w-32" />
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const placeholderProjects = [
+    {
+      _id: 'proj1',
+      title: 'AI Based Real Time Detection of Air Pollution and Prediction of Clean Air amidst Crop Residue Burning in Uttar Pradesh',
+      description: 'Development of an AI-powered system for real-time air pollution monitoring and prediction, specifically focusing on crop residue burning in Western Uttar Pradesh.',
+      fundingAgency: 'CSTUP, Uttar Pradesh',
+      duration: '3 years',
+      budget: '₹17.58 lakh',
+      role: 'Principal Investigator (PI)',
+      status: 'ongoing',
+      startYear: 2024,
+      endYear: 2027,
+      image: null,
+    },
+    {
+      _id: 'proj2',
+      title: 'Phytoinspired Advanced Nanomaterials from Agro‑Industrial Residues and Wastewater Treatment',
+      description: 'Research on developing advanced nanomaterials from agricultural waste for environmental applications and wastewater treatment solutions.',
+      fundingAgency: 'CSTUP, Uttar Pradesh',
+      duration: '3 years',
+      budget: '₹15.36 lakh',
+      role: 'Co-Principal Investigator (Co-PI)',
+      status: 'ongoing',
+      startYear: 2024,
+      endYear: 2027,
+      image: null,
+    },
+    {
+      _id: 'proj3',
+      title: 'Automated Supporting Document Generation for GST Notices',
+      description: 'Development of automated systems for generating supporting documents related to GST notices, streamlining tax compliance processes.',
+      fundingAgency: 'CSTUP, Uttar Pradesh',
+      duration: '1 year',
+      budget: '₹19 lakh',
+      role: 'Coordinator',
+      status: 'completed',
+      startYear: 2023,
+      endYear: 2024,
+      image: null,
+    },
+  ];
+
+  const displayProjects = projects.length > 0 ? projects : placeholderProjects;
+
+  if (error) {
+    console.warn('API Error:', error);
+  }
+
+  return (
+    <section id="projects" className="section-padding">
+      <div className="container-custom">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl font-bold text-slate-100 mb-4">Research Projects</h2>
+          <p className="text-slate-400 max-w-2xl mx-auto">
+            Funded research initiatives and collaborative endeavors
+          </p>
+        </motion.div>
+
+        {displayProjects.length > 0 ? (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {displayProjects.map((project, index) => (
+              <motion.div
+                key={project._id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="font-semibold text-slate-200 leading-tight flex-1">
+                      {project.title}
+                    </h3>
+                    <Badge variant={getStatusBadgeVariant(project.status)} className="text-xs">
+                      {project.status.charAt(0).toUpperCase() + project.status.slice(1)}
+                    </Badge>
+                  </div>
+                  
+                  <Badge variant="outline" className="text-xs border-primary/30 text-primary">
+                    {project.role}
+                  </Badge>
+                  
+                  {project.description && (
+                    <p className="text-sm text-slate-400 leading-relaxed line-clamp-3">
+                      {project.description}
+                    </p>
+                  )}
+                  
+                  <div className="space-y-2 text-sm text-slate-400 border-t border-slate-700 pt-4">
+                    {project.fundingAgency && (
+                      <div className="flex items-center gap-2">
+                        <Building2 className="h-4 w-4 text-primary" />
+                        <span>{project.fundingAgency}</span>
+                      </div>
+                    )}
+                    <div className="flex items-center justify-between">
+                      {project.budget && (
+                        <div className="flex items-center gap-2">
+                          <DollarSign className="h-4 w-4 text-green-400" />
+                          <span className="text-green-400 font-medium">{project.budget}</span>
+                        </div>
+                      )}
+                      {project.duration && (
+                        <div className="flex items-center gap-2">
+                          <Clock className="h-4 w-4 text-purple-400" />
+                          <span>{project.duration}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-slate-400">Research projects will be displayed here</p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
