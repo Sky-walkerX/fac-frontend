@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Professional Portfolio",
+  title: "Abhinesh Kaushik | Portfolio",
   description: "A professional portfolio website.",
 };
 
