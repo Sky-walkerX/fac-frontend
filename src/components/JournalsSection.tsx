@@ -81,26 +81,29 @@ const JournalsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-6 rounded-lg bg-slate-800/50 border border-slate-700/50 shadow-lg"
+              className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors flex flex-col h-full"
             >
-              <h3 className="text-lg font-semibold text-primary mb-2">{item.title}</h3>
-              <p className="text-sm text-slate-400 mb-4">{item.authors}</p>
-              <div className="flex items-center text-xs text-slate-500 mb-4">
-                <BookOpen className="w-3 h-3 mr-1.5" />
-                <span className="italic">{item.journal}</span>
+              <div className="flex-grow">
+                <h3 className="text-lg font-semibold text-slate-200 mb-2">{item.title}</h3>
+                <p className="text-sm text-slate-400 mb-4">{item.authors}</p>
+                <div className="flex items-center text-sm text-slate-400 mb-4">
+                  <BookOpen className="w-4 h-4 mr-2 text-slate-500" />
+                  <span className="italic">{item.journal}</span>
+                </div>
               </div>
-              <div className="flex justify-between items-center">
-                <div className="flex items-center text-xs text-slate-500">
-                  <Calendar className="w-3 h-3 mr-1.5" />
-                  {item.year}
+
+              <div className="mt-auto pt-4 border-t border-slate-700 flex justify-between items-center text-sm text-slate-500">
+                <div className="flex items-center">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  <span>{item.year}</span>
                 </div>
                 <a
                   href={item.doi}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-xs text-primary hover:underline"
+                  className="flex items-center text-primary hover:underline"
                 >
-                  DOI <ExternalLink className="w-3 h-3 ml-1" />
+                  DOI <ExternalLink className="w-4 h-4 ml-1" />
                 </a>
               </div>
             </motion.div>

@@ -106,41 +106,26 @@ const ExperienceSection = () => {
           </p>
         </motion.div>
 
-        <div className="relative">
-          <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700" />
-          {sortedExperiences.map((item, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {sortedExperiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative mb-8"
+              className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors flex flex-col h-full"
             >
-              <div className="flex items-center">
-                <div className={`flex-1 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8'}`}>
-                  <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-2 border-slate-700" />
-                </div>
+              <div className="flex-grow">
+                <h3 className="text-lg font-semibold text-slate-200 mb-2">{exp.title}</h3>
+                <p className="text-sm text-slate-400 mb-2">{exp.company}</p>
+                {exp.description && (
+                  <p className="text-sm text-slate-500">{exp.description}</p>
+                )}
               </div>
-
-              <div
-                className={`w-full flex ${
-                  index % 2 === 0 ? 'justify-start' : 'justify-end'
-                }`}
-              >
-                <div className="w-1/2 px-4">
-                  <div className={`p-4 rounded-lg bg-slate-800/50 border border-slate-700/50 shadow-lg`}>
-                    <h3 className="text-lg font-semibold text-primary">{item.title}</h3>
-                    <p className="text-sm text-slate-400 mb-2">{item.company}</p>
-                    <div className="flex items-center text-xs text-slate-500 mb-2">
-                      <Calendar className="w-3 h-3 mr-1.5" />
-                      {item.date}
-                    </div>
-                    {item.description && (
-                      <p className="text-sm text-slate-300">{item.description}</p>
-                    )}
-                  </div>
-                </div>
+              <div className="mt-auto pt-4 border-t border-slate-700 flex items-center text-sm text-slate-500">
+                <Calendar className="w-4 h-4 mr-2" />
+                <span>{exp.date}</span>
               </div>
             </motion.div>
           ))}

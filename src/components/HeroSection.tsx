@@ -201,50 +201,6 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="space-y-2">
-              {displayContact.email && (
-                <div className="flex items-center justify-center lg:justify-start gap-2 text-slate-500 text-sm">
-                  <FiMail className="text-primary" />
-                  <span>{displayContact.email}</span>
-                </div>
-              )}
-              {displayContact.alternateEmail && (
-                <div className="flex items-center justify-center lg:justify-start gap-2 text-slate-500 text-sm">
-                  <FiMail className="text-primary" />
-                  <span>{displayContact.alternateEmail}</span>
-                </div>
-              )}
-              {displayContact.phone && (
-                <div className="flex items-center justify-center lg:justify-start gap-2 text-slate-500 text-sm">
-                  <FiPhone className="text-primary" />
-                  <span>{displayContact.phone}</span>
-                </div>
-              )}
-              {displayContact.linkedIn && (
-                <div className="flex items-center justify-center lg:justify-start gap-2 text-slate-500 text-sm">
-                  <FiLinkedin className="text-primary" />
-                  <a href={displayContact.linkedIn} target="_blank" rel="noopener noreferrer">
-                    LinkedIn
-                  </a>
-                </div>
-              )}
-              {displayContact.googleScholar && (
-                <div className="flex items-center justify-center lg:justify-start gap-2 text-slate-500 text-sm">
-                  <FiExternalLink className="text-primary" />
-                  <a href={displayContact.googleScholar} target="_blank" rel="noopener noreferrer">
-                    Google Scholar
-                  </a>
-                </div>
-              )}
-              {displayContact.orcid && (
-                <div className="flex items-center justify-center lg:justify-start gap-2 text-slate-500 text-sm">
-                  <FiExternalLink className="text-primary" />
-                  <a href={displayContact.orcid} target="_blank" rel="noopener noreferrer">
-                    ORCID
-                  </a>
-                </div>
-              )}
-            </div>
           </motion.div>
 
           <motion.div
