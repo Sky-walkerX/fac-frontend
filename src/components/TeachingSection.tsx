@@ -198,38 +198,55 @@ export default function TeachingSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                         viewport={{ once: true }}
-                        className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors"
+                        className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors flex flex-col h-full"
                       >
-                        <div className="space-y-3">
-                          <div className="flex items-start justify-between gap-4">
-                            <div className="flex-1 min-w-0">
-                              <h4 className="font-semibold text-slate-200 leading-tight">
-                                {course.courseName}
-                              </h4>
-                              {course.courseCode && (
-                                <p className="text-sm text-primary font-mono mt-1">
+                        {/* Header Section - Fixed */}
+                        <div className="flex items-start justify-between gap-4 mb-3">
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-semibold text-slate-200 leading-tight min-h-[2.5rem]">
+                              {course.courseName}
+                            </h4>
+                            <div className="h-6 flex items-center">
+                              {course.courseCode ? (
+                                <p className="text-sm text-primary font-mono">
                                   {course.courseCode}
                                 </p>
+                              ) : (
+                                <div className="opacity-0">-</div>
                               )}
                             </div>
-                            <Badge variant={getLevelBadgeVariant(course.level)} className="text-xs">
-                              {course.level.charAt(0).toUpperCase() + course.level.slice(1)}
-                            </Badge>
                           </div>
+                          <Badge variant={getLevelBadgeVariant(course.level)} className="text-xs flex-shrink-0">
+                            {course.level.charAt(0).toUpperCase() + course.level.slice(1)}
+                          </Badge>
+                        </div>
 
-                          {course.description && (
-                            <p className="text-sm text-slate-400 leading-relaxed">
+                        {/* Description - Flexible */}
+                        <div className="flex-1 mb-4">
+                          {course.description ? (
+                            <p className="text-sm text-slate-400 leading-relaxed line-clamp-4">
                               {course.description}
                             </p>
+                          ) : (
+                            <div className="h-16 flex items-center justify-center">
+                              <span className="text-xs text-slate-500">No description available</span>
+                            </div>
                           )}
+                        </div>
 
+                        {/* Footer - Fixed at bottom */}
+                        <div className="mt-auto">
                           <div className="flex items-center justify-between text-sm text-slate-500 pt-3 border-t border-slate-700">
-                            {course.semester && (
-                              <span className="capitalize">
-                                {course.semester} Semester
-                              </span>
-                            )}
-                            <span>{course.year}</span>
+                            <div className="flex-1">
+                              {course.semester ? (
+                                <span className="capitalize text-xs">
+                                  {course.semester} Semester
+                                </span>
+                              ) : (
+                                <div className="opacity-0 text-xs">-</div>
+                              )}
+                            </div>
+                            <span className="text-xs font-medium">{course.year}</span>
                           </div>
                         </div>
                       </motion.div>

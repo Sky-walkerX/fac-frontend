@@ -126,26 +126,37 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors"
+                className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors flex flex-col h-full"
               >
-                <div className="flex items-start gap-4">
-                  <div className="bg-primary/10 p-2 rounded-lg">
+                <div className="flex items-start gap-4 flex-1">
+                  <div className="bg-primary/10 p-2 rounded-lg flex-shrink-0">
                     <GraduationCap className="h-5 w-5 text-primary" />
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-slate-200 leading-tight">
+                  <div className="flex-1 min-w-0 flex flex-col">
+                    {/* Title - Fixed */}
+                    <h3 className="font-semibold text-slate-200 leading-tight min-h-[2.5rem]">
                       {qual.qualification}
                     </h3>
-                    <p className="text-sm text-slate-400 mt-1">
-                      {qual.university}
-                    </p>
-                    <div className="flex items-center justify-between mt-3 pt-3 border-t border-slate-700">
+                    
+                    {/* University - Flexible */}
+                    <div className="flex-1">
+                      <p className="text-sm text-slate-400 mt-2 leading-relaxed">
+                        {qual.university}
+                      </p>
+                    </div>
+                    
+                    {/* Footer - Fixed at bottom */}
+                    <div className="flex items-center justify-between mt-4 pt-3 border-t border-slate-700">
                       <span className="text-sm text-slate-500">{qual.year}</span>
-                      {qual.percentage && (
-                        <span className="text-sm font-medium text-primary">
-                          {qual.percentage}
-                        </span>
-                      )}
+                      <div className="min-w-[3rem] text-right">
+                        {qual.percentage ? (
+                          <span className="text-sm font-medium text-primary">
+                            {qual.percentage}
+                          </span>
+                        ) : (
+                          <div className="opacity-0 text-sm">-</div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>

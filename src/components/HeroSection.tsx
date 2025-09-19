@@ -2,24 +2,37 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { About } from '@/types';
+import { About, Contact } from '@/types';
 import { facultyApi } from '@/lib/api';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
-import { FiMapPin } from 'react-icons/fi';
+import { 
+  FiMapPin, 
+  FiMail, 
+  FiPhone, 
+  FiLinkedin, 
+  FiExternalLink 
+} from 'react-icons/fi';
 
 export default function HeroSection() {
   const [about, setAbout] = useState<About | null>(null);
+  const [contact, setContact] = useState<Contact | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchAbout = async () => {
+    const fetchData = async () => {
       try {
-        const data = await facultyApi.getAbout();
-        if (data.length > 0) {
-          setAbout(data[0]);
+        const [aboutData, contactData] = await Promise.all([
+          facultyApi.getAbout(),
+          facultyApi.getContact()
+        ]);
+        if (aboutData.length > 0) {
+          setAbout(aboutData[0]);
+        }
+        if (contactData.length > 0) {
+          setContact(contactData[0]);
         }
       } catch (err) {
         // Silently handle errors and use placeholder data
@@ -29,7 +42,7 @@ export default function HeroSection() {
       }
     };
 
-    fetchAbout();
+    fetchData();
   }, []);
 
   const placeholderData = {
@@ -40,7 +53,17 @@ export default function HeroSection() {
     profileImage: null,
   };
 
+  const placeholderContact = {
+    email: 'abhinesh.kaushik@gmail.com',
+    alternateEmail: 'abhinesh@iiitl.ac.in',
+    phone: '8587012012',
+    linkedIn: 'https://www.linkedin.com/in/abhinesh-kaushik-67a83647',
+    googleScholar: 'https://scholar.google.com/citations?user=KqxVnuwAAAAJ&hl=en&oi=ao',
+    orcid: 'https://orcid.org/0000-0002-7864-6202',
+  };
+
   const displayData = about || placeholderData;
+  const displayContact = contact || placeholderContact;
 
   if (loading) {
     return (
@@ -97,6 +120,130 @@ export default function HeroSection() {
                 <span>{displayData.address}</span>
               </div>
             )}
+
+            {/* Contact Information */}
+            <div className="space-y-3">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                {displayContact.email && (
+                  <motion.a
+                    href={`mailto:${displayContact.email}`}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors group"
+                  >
+                    <FiMail className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                    <span className="text-sm">{displayContact.email}</span>
+                  </motion.a>
+                )}
+                
+                {displayContact.phone && (
+                  <motion.a
+                    href={`tel:${displayContact.phone}`}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="flex items-center gap-2 text-slate-400 hover:text-green-400 transition-colors group"
+                  >
+                    <FiPhone className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                    <span className="text-sm">{displayContact.phone}</span>
+                  </motion.a>
+                )}
+              </div>
+
+              {/* Social Links */}
+              <div className="flex gap-4 justify-center lg:justify-start">
+                {displayContact.linkedIn && (
+                  <motion.a
+                    href={displayContact.linkedIn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    className="flex items-center gap-2 px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-400 hover:text-blue-400 hover:border-blue-400/50 transition-all group"
+                  >
+                    <FiLinkedin className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                    <span className="text-xs font-medium">LinkedIn</span>
+                  </motion.a>
+                )}
+                
+                {displayContact.googleScholar && (
+                  <motion.a
+                    href={displayContact.googleScholar}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
+                    className="flex items-center gap-2 px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-400 hover:text-orange-400 hover:border-orange-400/50 transition-all group"
+                  >
+                    <FiExternalLink className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                    <span className="text-xs font-medium">Scholar</span>
+                  </motion.a>
+                )}
+                
+                {displayContact.orcid && (
+                  <motion.a
+                    href={displayContact.orcid}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.7 }}
+                    className="flex items-center gap-2 px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-all group"
+                  >
+                    <FiExternalLink className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                    <span className="text-xs font-medium">ORCID</span>
+                  </motion.a>
+                )}
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              {displayContact.email && (
+                <div className="flex items-center justify-center lg:justify-start gap-2 text-slate-500 text-sm">
+                  <FiMail className="text-primary" />
+                  <span>{displayContact.email}</span>
+                </div>
+              )}
+              {displayContact.alternateEmail && (
+                <div className="flex items-center justify-center lg:justify-start gap-2 text-slate-500 text-sm">
+                  <FiMail className="text-primary" />
+                  <span>{displayContact.alternateEmail}</span>
+                </div>
+              )}
+              {displayContact.phone && (
+                <div className="flex items-center justify-center lg:justify-start gap-2 text-slate-500 text-sm">
+                  <FiPhone className="text-primary" />
+                  <span>{displayContact.phone}</span>
+                </div>
+              )}
+              {displayContact.linkedIn && (
+                <div className="flex items-center justify-center lg:justify-start gap-2 text-slate-500 text-sm">
+                  <FiLinkedin className="text-primary" />
+                  <a href={displayContact.linkedIn} target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                  </a>
+                </div>
+              )}
+              {displayContact.googleScholar && (
+                <div className="flex items-center justify-center lg:justify-start gap-2 text-slate-500 text-sm">
+                  <FiExternalLink className="text-primary" />
+                  <a href={displayContact.googleScholar} target="_blank" rel="noopener noreferrer">
+                    Google Scholar
+                  </a>
+                </div>
+              )}
+              {displayContact.orcid && (
+                <div className="flex items-center justify-center lg:justify-start gap-2 text-slate-500 text-sm">
+                  <FiExternalLink className="text-primary" />
+                  <a href={displayContact.orcid} target="_blank" rel="noopener noreferrer">
+                    ORCID
+                  </a>
+                </div>
+              )}
+            </div>
           </motion.div>
 
           <motion.div

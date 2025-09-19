@@ -155,48 +155,71 @@ export default function ProjectsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors"
+                className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors flex flex-col h-full"
               >
-                <div className="space-y-4">
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="font-semibold text-slate-200 leading-tight flex-1">
-                      {project.title}
-                    </h3>
-                    <Badge variant={getStatusBadgeVariant(project.status)} className="text-xs">
-                      {project.status.charAt(0).toUpperCase() + project.status.slice(1)}
-                    </Badge>
-                  </div>
-                  
+                {/* Header Section - Fixed */}
+                <div className="flex items-start justify-between gap-4 mb-4">
+                  <h3 className="font-semibold text-slate-200 leading-tight flex-1 min-h-[3rem]">
+                    {project.title}
+                  </h3>
+                  <Badge variant={getStatusBadgeVariant(project.status)} className="text-xs flex-shrink-0">
+                    {project.status.charAt(0).toUpperCase() + project.status.slice(1)}
+                  </Badge>
+                </div>
+                
+                {/* Role Badge - Fixed */}
+                <div className="mb-4">
                   <Badge variant="outline" className="text-xs border-primary/30 text-primary">
                     {project.role}
                   </Badge>
-                  
-                  {project.description && (
-                    <p className="text-sm text-slate-400 leading-relaxed line-clamp-3">
+                </div>
+                
+                {/* Description - Flexible */}
+                <div className="flex-1 mb-4">
+                  {project.description ? (
+                    <p className="text-sm text-slate-400 leading-relaxed line-clamp-4">
                       {project.description}
                     </p>
+                  ) : (
+                    <div className="h-16"></div>
                   )}
-                  
-                  <div className="space-y-2 text-sm text-slate-400 border-t border-slate-700 pt-4">
-                    {project.fundingAgency && (
+                </div>
+                
+                {/* Footer Section - Fixed at bottom */}
+                <div className="mt-auto">
+                  <div className="space-y-3 text-sm text-slate-400 border-t border-slate-700 pt-4">
+                    {/* Funding Agency */}
+                    <div className="min-h-[1.25rem]">
+                      {project.fundingAgency && (
+                        <div className="flex items-center gap-2">
+                          <Building2 className="h-4 w-4 text-primary flex-shrink-0" />
+                          <span className="truncate">{project.fundingAgency}</span>
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Budget and Duration - Always aligned */}
+                    <div className="grid grid-cols-2 gap-2 min-h-[1.25rem]">
                       <div className="flex items-center gap-2">
-                        <Building2 className="h-4 w-4 text-primary" />
-                        <span>{project.fundingAgency}</span>
+                        {project.budget ? (
+                          <>
+                            <DollarSign className="h-4 w-4 text-green-400 flex-shrink-0" />
+                            <span className="text-green-400 font-medium text-xs truncate">{project.budget}</span>
+                          </>
+                        ) : (
+                          <div className="opacity-0">-</div>
+                        )}
                       </div>
-                    )}
-                    <div className="flex items-center justify-between">
-                      {project.budget && (
-                        <div className="flex items-center gap-2">
-                          <DollarSign className="h-4 w-4 text-green-400" />
-                          <span className="text-green-400 font-medium">{project.budget}</span>
-                        </div>
-                      )}
-                      {project.duration && (
-                        <div className="flex items-center gap-2">
-                          <Clock className="h-4 w-4 text-purple-400" />
-                          <span>{project.duration}</span>
-                        </div>
-                      )}
+                      <div className="flex items-center gap-2 justify-end">
+                        {project.duration ? (
+                          <>
+                            <Clock className="h-4 w-4 text-purple-400 flex-shrink-0" />
+                            <span className="text-xs truncate">{project.duration}</span>
+                          </>
+                        ) : (
+                          <div className="opacity-0">-</div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>

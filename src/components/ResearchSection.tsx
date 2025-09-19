@@ -308,26 +308,41 @@ export default function ResearchSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors"
+                    className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors flex flex-col h-full"
                   >
-                    <h4 className="font-semibold text-slate-200 mb-3">
+                    {/* Title - Fixed */}
+                    <h4 className="font-semibold text-slate-200 mb-3 min-h-[1.5rem]">
                       {area.title}
                     </h4>
-                    {area.description && (
-                      <p className="text-sm text-slate-400 leading-relaxed mb-4">
-                        {area.description}
-                      </p>
-                    )}
-                    {area.link && (
-                      <a 
-                        href={area.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors font-medium"
-                      >
-                        Learn more <ExternalLink className="h-4 w-4" />
-                      </a>
-                    )}
+                    
+                    {/* Description - Flexible */}
+                    <div className="flex-1 mb-4">
+                      {area.description ? (
+                        <p className="text-sm text-slate-400 leading-relaxed">
+                          {area.description}
+                        </p>
+                      ) : (
+                        <div className="h-12 flex items-center justify-center">
+                          <span className="text-xs text-slate-500">No description available</span>
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Link - Fixed at bottom */}
+                    <div className="mt-auto">
+                      {area.link ? (
+                        <a 
+                          href={area.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors font-medium"
+                        >
+                          Learn more <ExternalLink className="h-4 w-4" />
+                        </a>
+                      ) : (
+                        <div className="h-6"></div>
+                      )}
+                    </div>
                   </motion.div>
                 ))}
               </div>

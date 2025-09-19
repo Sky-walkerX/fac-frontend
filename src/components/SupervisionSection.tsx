@@ -229,35 +229,37 @@ export default function SupervisionSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                         viewport={{ once: true }}
-                        className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors"
+                        className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors flex flex-col h-full"
                       >
-                        <div className="space-y-4">
-                          <div className="flex items-start justify-between gap-4">
-                            <div className="flex items-center gap-3 flex-1">
-                              <div className="p-2 bg-primary/10 rounded-lg">
-                                <User className="h-4 w-4 text-primary" />
-                              </div>
-                              <div className="min-w-0">
-                                <h4 className="font-semibold text-slate-200 leading-tight">
-                                  {supervision.studentName}
-                                </h4>
-                                <div className="flex flex-wrap gap-2 mt-1">
-                                  <Badge variant={getLevelBadgeVariant(supervision.level)} className="text-xs">
-                                    {formatLevel(supervision.level)}
-                                  </Badge>
-                                  <Badge variant={getStatusBadgeVariant(supervision.status)} className="text-xs">
-                                    {supervision.status.charAt(0).toUpperCase() + supervision.status.slice(1)}
-                                  </Badge>
-                                </div>
+                        {/* Header Section - Fixed */}
+                        <div className="flex items-start justify-between gap-4 mb-4">
+                          <div className="flex items-center gap-3 flex-1">
+                            <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
+                              <User className="h-4 w-4 text-primary" />
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <h4 className="font-semibold text-slate-200 leading-tight">
+                                {supervision.studentName}
+                              </h4>
+                              <div className="flex flex-wrap gap-2 mt-2">
+                                <Badge variant={getLevelBadgeVariant(supervision.level)} className="text-xs">
+                                  {formatLevel(supervision.level)}
+                                </Badge>
+                                <Badge variant={getStatusBadgeVariant(supervision.status)} className="text-xs">
+                                  {supervision.status.charAt(0).toUpperCase() + supervision.status.slice(1)}
+                                </Badge>
                               </div>
                             </div>
                           </div>
+                        </div>
 
-                          {supervision.title && (
-                            <div className="bg-slate-800/30 rounded-lg p-4">
+                        {/* Thesis Title - Flexible */}
+                        <div className="flex-1 mb-4">
+                          {supervision.title ? (
+                            <div className="bg-slate-800/30 rounded-lg p-4 h-full">
                               <div className="flex items-start gap-2">
                                 <FileText className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                                <div>
+                                <div className="flex-1 min-w-0">
                                   <p className="text-xs font-medium text-slate-400 mb-1">Thesis Title</p>
                                   <p className="text-sm text-slate-300 leading-relaxed">
                                     {supervision.title}
@@ -265,12 +267,19 @@ export default function SupervisionSection() {
                                 </div>
                               </div>
                             </div>
+                          ) : (
+                            <div className="h-20 bg-slate-800/10 rounded-lg flex items-center justify-center">
+                              <span className="text-xs text-slate-500">No thesis title available</span>
+                            </div>
                           )}
+                        </div>
 
+                        {/* Footer - Fixed at bottom */}
+                        <div className="mt-auto">
                           <div className="flex items-center justify-between text-sm text-slate-500 pt-3 border-t border-slate-700">
                             <div className="flex items-center gap-2">
-                              <Calendar className="h-4 w-4 text-primary" />
-                              <span>
+                              <Calendar className="h-4 w-4 text-primary flex-shrink-0" />
+                              <span className="text-xs">
                                 {supervision.startYear}
                                 {supervision.endYear && supervision.endYear !== supervision.startYear
                                   ? ` - ${supervision.endYear}`
