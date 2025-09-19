@@ -50,7 +50,7 @@ export default function Navigation() {
     >
       <nav className="container-custom flex items-center justify-between py-4">
         <Link href="/" className="text-lg font-semibold text-slate-200 hover:text-primary transition-colors">
-          Portfolio
+          Abhinesh Kaushik
         </Link>
         
         <div className="flex lg:hidden">

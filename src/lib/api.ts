@@ -262,48 +262,221 @@ export const facultyApi = {
       return [
         {
           id: '1',
-          title: 'Ph.D. in Computer Science and Engineering',
-          description: 'Completed doctoral studies with focus on Machine Learning and Natural Language Processing',
-          category: 'Awards',
-          organization: 'Indian Institute of Technology, Roorkee',
-          date: '2019-06-30',
+          title: 'Published Newspaper Article with Economic Times',
+          description: 'Article titled "When algorithms misfire: Lessons from AI-intensive business failures"',
+          category: 'Publications',
+          organization: 'Economic Times',
+          date: '2025-07-03',
+          url: 'https://government.economictimes.indiatimes.com/blog/navigating-ai-failures-keylessons-for-tech-firms/122220958?utm_source=latest_news&utm_medium=homepage',
           order: 1
         },
         {
           id: '2',
-          title: 'M.Tech in Computer Science and Engineering',
-          description: 'Master of Technology degree with specialization in Computer Science',
-          category: 'Awards',
-          organization: 'Indian Institute of Technology, Roorkee',
-          date: '2015-06-30',
+          title: 'Expert Lecture on Artificial Intelligence',
+          description: 'Invited for expert lecture on "Artificial intelligence: Opportunities and Challenges for the Future"',
+          category: 'Recognition',
+          organization: 'BBAU, Lucknow, UP',
+          date: '2025-03-28',
           order: 2
         },
         {
           id: '3',
-          title: 'B.Tech in Computer Science and Engineering',
-          description: 'Bachelor of Technology degree in Computer Science and Engineering',
-          category: 'Awards',
-          organization: 'Academic Institution',
-          date: '2013-06-30',
+          title: 'Technical Session Chair at IEEE DICCT-2025',
+          description: 'Chair at 3rd IEEE International Conference on Device Intelligence, Computing and Communication Technologies',
+          category: 'Recognition',
+          organization: 'Graphic Era (Deemed to be University)',
+          date: '2025-03-21',
           order: 3
         },
         {
           id: '4',
-          title: 'Research Excellence Award',
-          description: 'Recognition for outstanding research contributions in Machine Learning',
+          title: 'Keynote Speaker at IEEE IC3SE-2025',
+          description: 'Keynote speaker at IEEE sponsored 2nd International Conference on Communication, Computer Sciences and Engineering',
           category: 'Recognition',
-          organization: 'NIT Hamirpur',
-          date: '2022-12-01',
+          organization: 'Amity University, Greater Noida, India',
+          date: '2025-03-19',
           order: 4
         },
         {
           id: '5',
-          title: 'Best Paper Award',
-          description: 'Award for outstanding research paper presentation',
-          category: 'Awards',
-          organization: 'International Conference',
-          date: '2021-09-15',
+          title: 'Expert Talk on Blockchain and its Futures',
+          description: 'Invited for expert talk in 05-days Faculty Updation Program on "Cryptography for Information Security"',
+          category: 'Recognition',
+          organization: 'ISEA-III Project, MeitY, Govt. of India',
+          date: '2025-03-07',
           order: 5
+        },
+        {
+          id: '6',
+          title: 'Technical Session Chair at CE2CT-2025',
+          description: 'Chair at 1st International Conference on Advances in Computer Science, Electrical, Electronics, and Communication Technologies',
+          category: 'Recognition',
+          organization: 'GEHU Bhimtal Campus, Nainital, Uttarakhand',
+          date: '2025-02-21',
+          order: 6
+        },
+        {
+          id: '7',
+          title: 'Keynote Speaker at IEEE IC3I',
+          description: 'Keynote speaker at IEEE-sponsored 7th International Conference on Contemporary Computing and Informatics',
+          category: 'Recognition',
+          organization: 'Amity University, Greater Noida',
+          date: '2024-09-01',
+          order: 7
+        },
+        {
+          id: '8',
+          title: 'Technical Session Chair at IEEE SPARC-2024',
+          description: 'Chair at IEEE-sponsored International Conference on Signal Processing and Advanced Research in Computing',
+          category: 'Recognition',
+          organization: 'Amity University, Lucknow',
+          date: '2024-09-01',
+          order: 8
+        },
+        {
+          id: '9',
+          title: 'Guest Lecture on AI Start-ups',
+          description: 'Lecture on "Opportunities Challenges, & the Support system for starting AI related start-ups in India"',
+          category: 'Recognition',
+          organization: 'Ministry of MSME-sponsored ESDP Program',
+          date: '2024-01-15',
+          order: 9
+        },
+        {
+          id: '10',
+          title: 'Guest Lecture on Agri-Tech Start-Ups',
+          description: 'Lecture on Indian Support System for ICT, AI/ML, IOT related Agri-Tech Start-Ups',
+          category: 'Recognition',
+          organization: 'Ministry of MSME-sponsored ESDP Program',
+          date: '2024-03-04',
+          order: 10
+        },
+        {
+          id: '11',
+          title: 'Guest Lecture at UPCST',
+          description: 'Lecture on "Artificial Intelligence and Mobile Communications" on National Technology Day',
+          category: 'Recognition',
+          organization: 'UPCST',
+          date: '2024-05-08',
+          order: 11
+        },
+        {
+          id: '12',
+          title: 'Guest Lecture on Research Trends',
+          description: 'Lecture on "Recent and Evergreen Research Trends in Databases and Wireless Sensor Networks"',
+          category: 'Recognition',
+          organization: 'Siksha O Anusandhan Deemed to be University, Bhubaneswar, Odisha',
+          date: '2022-11-05',
+          order: 12
+        },
+        {
+          id: '13',
+          title: 'Organizing Committee Member ICSNCS-2016',
+          description: 'Member organizing Committee of International Conference on Signal, Networks, Computing and Systems',
+          category: 'Recognition',
+          organization: 'JNU, New Delhi',
+          date: '2016-01-01',
+          order: 13
+        },
+        {
+          id: '14',
+          title: 'International Research Workshop Participation',
+          description: 'Participated in International Research Workshop on Cloud Computing RWCC-2014',
+          category: 'Recognition',
+          organization: 'JNU, New Delhi',
+          date: '2014-01-01',
+          order: 14
+        },
+        {
+          id: '15',
+          title: 'BARC Scientist Interview Qualified',
+          description: 'Appeared for BARC Scientist Interview after qualifying the written Examination',
+          category: 'Recognition',
+          organization: 'BARC',
+          date: '2014-01-01',
+          order: 15
+        },
+        {
+          id: '16',
+          title: 'First Prize in University Project Competition',
+          description: 'Won first prize with cash prize of Ten thousand rupees for creating GURU android application',
+          category: 'Awards',
+          organization: 'University',
+          date: '2013-01-01',
+          amount: '₹10,000',
+          order: 16
+        },
+        {
+          id: '17',
+          title: 'ISTE Workshop on Android Programming',
+          description: 'Participated in two weekends ISTE Workshop on Aakash Android Application Programming',
+          category: 'Certifications',
+          organization: 'IIT, Bombay (MHRD)',
+          date: '2013-01-01',
+          order: 17
+        },
+        {
+          id: '18',
+          title: 'College Fest Committee Work',
+          description: 'Worked for college fest in various committees (Techsurge & Mridang 2010)',
+          category: 'Recognition',
+          organization: 'College',
+          date: '2010-01-01',
+          order: 18
+        },
+        {
+          id: '19',
+          title: 'Mathematics Crusade Representation',
+          description: 'Represented school in Mathematics Crusade',
+          category: 'Recognition',
+          organization: 'School',
+          date: '2008-01-01',
+          order: 19
+        },
+        {
+          id: '20',
+          title: 'Acting and Drama Awards',
+          description: 'Won several awards in the field of Acting and Drama',
+          category: 'Awards',
+          organization: 'Various',
+          date: '2009-01-01',
+          order: 20
+        },
+        {
+          id: '21',
+          title: 'International Science Olympiad Second Rank',
+          description: 'Secured second school rank in class XI in international science Olympiad',
+          category: 'Awards',
+          organization: 'School',
+          date: '2008-01-01',
+          order: 21
+        },
+        {
+          id: '22',
+          title: 'Hindi Academy Merit Certificate',
+          description: 'Merit certificate and cash reward from Hindi Academy for scoring 85% marks in Hindi in class Tenth',
+          category: 'Awards',
+          organization: 'Hindi Academy',
+          date: '2007-01-01',
+          order: 22
+        },
+        {
+          id: '23',
+          title: 'Young Scientist Challenge Representation',
+          description: 'Represented school for young scientist challenge',
+          category: 'Recognition',
+          organization: 'School',
+          date: '2007-01-01',
+          order: 23
+        },
+        {
+          id: '24',
+          title: 'Street Play Performance at British Council',
+          description: 'Performed a street play at British Council (Beyond the Borders)',
+          category: 'Recognition',
+          organization: 'British Council',
+          date: '2005-01-01',
+          order: 24
         }
       ];
     }

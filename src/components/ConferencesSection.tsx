@@ -30,7 +30,7 @@ const conferences = [
 
 const ConferencesSection = () => {
   return (
-    <section id="conferences" className="py-20 bg-background">
+    <section id="conferences" className="py-20">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,18 +52,18 @@ const ConferencesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors flex flex-col h-full"
+              className="bg-slate-800/20 backdrop-blur-md border border-slate-700/60 rounded-xl p-6 hover:border-primary/40 hover:bg-slate-800/90 transition-all duration-300 flex flex-col h-full shadow-xl"
             >
               <div className="flex-grow">
-                <h3 className="text-lg font-semibold text-slate-200 mb-2">{item.title}</h3>
-                <p className="text-sm text-slate-400 mb-4">{item.authors}</p>
-                <div className="flex items-center text-sm text-slate-400 mb-4">
-                  <Users className="w-4 h-4 mr-2 text-slate-500" />
+                <h3 className="text-lg font-semibold text-slate-100 mb-2">{item.title}</h3>
+                <p className="text-sm text-slate-300 mb-4">{item.authors}</p>
+                <div className="flex items-center text-sm text-slate-300 mb-4">
+                  <Users className="w-4 h-4 mr-2 text-green-400" />
                   <span className="italic">{item.conference}</span>
                 </div>
               </div>
 
-              <div className="mt-auto pt-4 border-t border-slate-700 flex justify-between items-center text-sm text-slate-500">
+              <div className="mt-auto pt-4 border-t border-slate-600/50 flex justify-between items-center text-sm text-slate-400">
                 <div className="flex items-center">
                   <Calendar className="w-4 h-4 mr-2" />
                   <span>{item.year}</span>

@@ -51,7 +51,7 @@ export default function Footer() {
   const displayContact = contact || placeholderContact;
 
   return (
-    <footer className="relative border-t border-slate-700/50 bg-slate-900/30">
+    <footer className="relative border-t border-slate-700/50">
       <div className="container-custom py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

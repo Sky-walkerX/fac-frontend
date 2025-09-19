@@ -123,7 +123,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="section-padding bg-background">
+    <section id="projects" className="section-padding">
       <div className="container-custom">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -137,7 +137,7 @@ export default function ProjectsSection() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
           {loading
             ? [...Array(3)].map((_, i) => (
-                <Card key={i} className="bg-card/50 rounded-xl shadow-lg">
+                <Card key={i} className="bg-slate-900/80 backdrop-blur-md border-slate-700/60 rounded-xl shadow-xl">
                   <CardHeader>
                     <Skeleton className="h-6 w-3/4" />
                     <Skeleton className="h-4 w-1/4" />
@@ -162,7 +162,7 @@ export default function ProjectsSection() {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="bg-transparent border-slate-800 hover:border-primary/50 transition-colors duration-300 h-full flex flex-col">
+                  <Card className="bg-slate-800/20 backdrop-blur-md border-slate-700/60 hover:border-primary/50 hover:bg-slate-800/90 transition-all duration-300 h-full flex flex-col shadow-xl">
                     <CardHeader>
                       <CardTitle className="text-lg font-semibold text-white">{project.title}</CardTitle>
                       <Badge

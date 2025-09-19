@@ -92,7 +92,7 @@ export default function TechnicalSkillsSection() {
 
   if (error) {
     return (
-      <section id="skills" className="py-20 bg-background">
+      <section id="skills" className="py-20">
         <div className="container-custom">
           <div className="text-center">
             <h2 className="text-3xl font-bold mb-4">Technical Skills</h2>
@@ -105,7 +105,7 @@ export default function TechnicalSkillsSection() {
 
   if (loading || !skills) {
     return (
-      <section id="skills" className="py-20 bg-background">
+      <section id="skills" className="py-20">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -147,7 +147,7 @@ export default function TechnicalSkillsSection() {
   );
 
   return (
-    <section id="skills" className="py-20 bg-background">
+    <section id="skills" className="py-20">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

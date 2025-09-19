@@ -196,7 +196,7 @@ export default function TeachingSection() {
                     <h3 className="text-xl font-semibold text-slate-200">
                       Academic Year {year}
                     </h3>
-                    <div className="flex-1 h-px bg-slate-700"></div>
+                    {/* <div className="flex-1 h-px bg-slate-700"></div> */}
                   </div>
                   
                   <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -207,12 +207,12 @@ export default function TeachingSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                         viewport={{ once: true }}
-                        className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors flex flex-col h-full"
+                        className="bg-slate-800/20 backdrop-blur-md border border-slate-700/60 rounded-xl p-6 hover:border-primary/40 hover:bg-slate-800/90 transition-all duration-300 flex flex-col h-full shadow-xl"
                       >
                         {/* Header Section - Fixed */}
                         <div className="flex items-start justify-between gap-4 mb-3">
                           <div className="flex-1 min-w-0">
-                            <h4 className="font-semibold text-slate-200 leading-tight min-h-[2.5rem]">
+                            <h4 className="font-semibold text-slate-100 leading-tight min-h-[2.5rem]">
                               {course.courseName}
                             </h4>
                             <div className="h-6 flex items-center">
@@ -233,7 +233,7 @@ export default function TeachingSection() {
                         {/* Description - Flexible */}
                         <div className="flex-1 mb-4">
                           {course.description ? (
-                            <p className="text-sm text-slate-400 leading-relaxed line-clamp-4">
+                            <p className="text-sm text-slate-300 leading-relaxed line-clamp-4">
                               {course.description}
                             </p>
                           ) : (
@@ -245,7 +245,7 @@ export default function TeachingSection() {
 
                         {/* Footer - Fixed at bottom */}
                         <div className="mt-auto">
-                          <div className="flex items-center justify-between text-sm text-slate-500 pt-3 border-t border-slate-700">
+                          <div className="flex items-center justify-between text-sm text-slate-400 pt-3 border-t border-slate-600/50">
                             <div className="flex-1">
                               {course.semester ? (
                                 <span className="capitalize text-xs">

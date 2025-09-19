@@ -198,7 +198,7 @@ export default function SupervisionSection() {
           <Skeleton className="h-12 w-64 mx-auto mb-16" />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[...Array(6)].map((_, i) => (
-              <div key={i} className="border border-slate-700 rounded-lg p-6">
+              <div key={i} className="bg-slate-900/80 backdrop-blur-md border border-slate-700/60 rounded-xl p-6 shadow-xl">
                 <Skeleton className="h-6 w-3/4" />
                 <Skeleton className="h-4 w-1/2" />
                 <Skeleton className="h-20 w-full" />
@@ -256,7 +256,7 @@ export default function SupervisionSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                         viewport={{ once: true }}
-                        className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors flex flex-col h-full"
+                        className="bg-slate-800/20 backdrop-blur-md border border-slate-700/60 rounded-xl p-6 hover:border-primary/40 hover:bg-slate-800/90 transition-all duration-300 flex flex-col h-full shadow-xl"
                       >
                         {/* Header Section - Fixed */}
                         <div className="flex items-start justify-between gap-4 mb-4">
@@ -265,7 +265,7 @@ export default function SupervisionSection() {
                               <User className="h-4 w-4 text-primary" />
                             </div>
                             <div className="min-w-0 flex-1">
-                              <h4 className="font-semibold text-slate-200 leading-tight">
+                              <h4 className="font-semibold text-slate-100 leading-tight">
                                 {supervision.studentName}
                               </h4>
                               <div className="flex flex-wrap gap-2 mt-2">
@@ -283,19 +283,19 @@ export default function SupervisionSection() {
                         {/* Thesis Title - Flexible */}
                         <div className="flex-1 mb-4">
                           {supervision.title ? (
-                            <div className="bg-slate-800/30 rounded-lg p-4 h-full">
+                            <div className="bg-slate-800/40 rounded-lg p-4 h-full">
                               <div className="flex items-start gap-2">
                                 <FileText className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                                 <div className="flex-1 min-w-0">
-                                  <p className="text-xs font-medium text-slate-400 mb-1">Thesis Title</p>
-                                  <p className="text-sm text-slate-300 leading-relaxed">
+                                  <p className="text-xs font-medium text-slate-300 mb-1">Thesis Title</p>
+                                  <p className="text-sm text-slate-200 leading-relaxed">
                                     {supervision.title}
                                   </p>
                                 </div>
                               </div>
                             </div>
                           ) : (
-                            <div className="h-20 bg-slate-800/10 rounded-lg flex items-center justify-center">
+                            <div className="h-20 bg-slate-800/20 rounded-lg flex items-center justify-center">
                               <span className="text-xs text-slate-500">No thesis title available</span>
                             </div>
                           )}
@@ -303,7 +303,7 @@ export default function SupervisionSection() {
 
                         {/* Footer - Fixed at bottom */}
                         <div className="mt-auto">
-                          <div className="flex items-center justify-between text-sm text-slate-500 pt-3 border-t border-slate-700">
+                          <div className="flex items-center justify-between text-sm text-slate-400 pt-3 border-t border-slate-600/50">
                             <div className="flex items-center gap-2">
                               <Calendar className="h-4 w-4 text-primary flex-shrink-0" />
                               <span className="text-xs">

@@ -6,13 +6,16 @@ import { About, Contact } from '@/types';
 import { facultyApi } from '@/lib/api';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { 
   FiMapPin, 
   FiMail, 
   FiPhone, 
   FiLinkedin, 
-  FiExternalLink 
+  FiExternalLink,
+  FiDownload,
+  FiEye
 } from 'react-icons/fi';
 
 export default function HeroSection() {
@@ -200,6 +203,38 @@ export default function HeroSection() {
                 )}
               </div>
             </div>
+
+            {/* Resume Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className="flex gap-3 justify-center lg:justify-start"
+            >
+              <Button
+                onClick={() => window.open('/Resume IIITL-2.pdf', '_blank')}
+                className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg transition-all group"
+              >
+                <FiEye className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                View Resume
+              </Button>
+              
+              <Button
+                variant="outline"
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = '/Resume IIITL-2.pdf';
+                  link.download = 'Dr_Abhinesh_Kaushik_Resume.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                className="flex items-center gap-2 border-slate-700 text-slate-300 hover:border-primary/50 hover:text-primary px-6 py-2 rounded-lg transition-all group"
+              >
+                <FiDownload className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                Download
+              </Button>
+            </motion.div>
 
           </motion.div>
 

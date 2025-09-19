@@ -33,12 +33,12 @@ export default function AboutSection() {
 
   if (loading) {
     return (
-      <section id="about" className="section-padding bg-secondary/20">
+      <section id="about" className="section-padding">
         <div className="container-custom">
           <Skeleton className="h-12 w-64 mx-auto mb-16" />
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[...Array(6)].map((_, i) => (
-              <Card key={i} className="h-48 bg-card/50 rounded-xl">
+              <Card key={i} className="h-48 bg-slate-900/80 backdrop-blur-md border-slate-700/60 rounded-xl shadow-xl">
                 <CardHeader>
                   <Skeleton className="h-6 w-3/4" />
                   <Skeleton className="h-4 w-1/2" />
@@ -126,7 +126,7 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors flex flex-col h-full"
+                className="bg-slate-800/20 backdrop-blur-md border border-slate-700/60 rounded-xl p-6 hover:border-primary/40 hover:bg-slate-800/90 transition-all duration-300 flex flex-col h-full shadow-xl"
               >
                 <div className="flex items-start gap-4 flex-1">
                   <div className="bg-primary/10 p-2 rounded-lg flex-shrink-0">
@@ -134,20 +134,20 @@ export default function AboutSection() {
                   </div>
                   <div className="flex-1 min-w-0 flex flex-col">
                     {/* Title - Fixed */}
-                    <h3 className="font-semibold text-slate-200 leading-tight min-h-[2.5rem]">
+                    <h3 className="font-semibold text-slate-100 leading-tight min-h-[2.5rem]">
                       {qual.qualification}
                     </h3>
                     
                     {/* University - Flexible */}
                     <div className="flex-1">
-                      <p className="text-sm text-slate-400 mt-2 leading-relaxed">
+                      <p className="text-sm text-slate-300 mt-2 leading-relaxed">
                         {qual.university}
                       </p>
                     </div>
                     
                     {/* Footer - Fixed at bottom */}
-                    <div className="flex items-center justify-between mt-4 pt-3 border-t border-slate-700">
-                      <span className="text-sm text-slate-500">{qual.year}</span>
+                    <div className="flex items-center justify-between mt-4 pt-3 border-t border-slate-600/50">
+                      <span className="text-sm text-slate-400">{qual.year}</span>
                       <div className="min-w-[3rem] text-right">
                         {qual.percentage ? (
                           <span className="text-sm font-medium text-primary">

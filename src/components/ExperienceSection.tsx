@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar } from 'lucide-react';
+import { Calendar, MapPin, Briefcase } from 'lucide-react';
+import { Timeline } from '@/components/ui/timeline';
 
 const experiences = [
   {
@@ -90,8 +91,48 @@ const ExperienceSection = () => {
 
   const sortedExperiences = [...experiences].sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime());
 
+  // Transform experiences data for Timeline component
+  const timelineData = sortedExperiences.map((exp) => ({
+    title: exp.date,
+    content: (
+      <div className="pb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="bg-slate-800/20 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 hover:border-slate-600/50 transition-all duration-300"
+        >
+          <div className="flex items-start gap-4">
+            <div className="p-2 bg-slate-700/50 rounded-lg">
+              <Briefcase className="w-5 h-5 text-blue-400" />
+            </div>
+            <div className="flex-1">
+              <h3 className="text-xl font-semibold text-slate-100 mb-2">
+                {exp.title}
+              </h3>
+              <div className="flex items-center gap-2 mb-3">
+                <MapPin className="w-4 h-4 text-slate-400" />
+                <span className="text-slate-300 font-medium">{exp.company}</span>
+              </div>
+              {exp.description && (
+                <p className="text-slate-400 leading-relaxed mb-3">
+                  {exp.description}
+                </p>
+              )}
+              <div className="flex items-center gap-2 text-sm text-slate-500">
+                <Calendar className="w-4 h-4" />
+                <span>{exp.date}</span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    ),
+  }));
+
   return (
-    <section id="experience" className="py-20 bg-background">
+    <section id="experience" className="py-20">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -105,31 +146,8 @@ const ExperienceSection = () => {
             A timeline of my professional career and key responsibilities.
           </p>
         </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sortedExperiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="border border-slate-700 rounded-lg p-6 hover:border-slate-600 transition-colors flex flex-col h-full"
-            >
-              <div className="flex-grow">
-                <h3 className="text-lg font-semibold text-slate-200 mb-2">{exp.title}</h3>
-                <p className="text-sm text-slate-400 mb-2">{exp.company}</p>
-                {exp.description && (
-                  <p className="text-sm text-slate-500">{exp.description}</p>
-                )}
-              </div>
-              <div className="mt-auto pt-4 border-t border-slate-700 flex items-center text-sm text-slate-500">
-                <Calendar className="w-4 h-4 mr-2" />
-                <span>{exp.date}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        
+        <Timeline data={timelineData} />
       </div>
     </section>
   );
