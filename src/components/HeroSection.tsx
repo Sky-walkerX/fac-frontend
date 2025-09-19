@@ -48,8 +48,8 @@ export default function HeroSection() {
   const placeholderData = {
     name: 'DR. ABHINESH KAUSHIK',
     designation: 'Assistant Professor & Deputy Registrar',
-    bio: 'Researcher in Wireless Sensor Networks, Machine Learning, and Artificial Intelligence with expertise in localization algorithms, IoT applications, and network optimization. Currently serving as Assistant Professor at Indian Institute of Information Technology, Lucknow, with extensive experience in funded research projects and academic excellence.',
-    address: 'Indian Institute of Information Technology, Lucknow, Uttar Pradesh, India',
+    bio: 'Researcher in Wireless Sensor Networks, Machine Learning, and Artificial Intelligence. Currently serving as Assistant Professor at Indian Institute of Information Technology, Lucknow, with extensive experience in localization algorithms and IoT applications. Also serving as Deputy Registrar and Faculty In-Charge for Training & Placements.',
+    address: 'Indian Institute of Information Technology, Lucknow',
     profileImage: null,
   };
 
@@ -57,8 +57,9 @@ export default function HeroSection() {
     email: 'abhinesh.kaushik@gmail.com',
     alternateEmail: 'abhinesh@iiitl.ac.in',
     phone: '8587012012',
+    office: 'Indian Institute of Information Technology, Lucknow',
     linkedIn: 'https://www.linkedin.com/in/abhinesh-kaushik-67a83647',
-    googleScholar: 'https://scholar.google.com/citations?user=KqxVnuwAAAAJ&hl=en&oi=ao',
+    googleScholar: 'https://scholar.google.com/citations?user=KqxVnuwAAAAJ',
     orcid: 'https://orcid.org/0000-0002-7864-6202',
   };
 

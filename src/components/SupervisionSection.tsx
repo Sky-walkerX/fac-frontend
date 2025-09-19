@@ -93,56 +93,83 @@ export default function SupervisionSection() {
   const placeholderSupervisions: Supervision[] = [
     {
       _id: 'sup1',
-      studentName: 'Kiran Tanwar',
+      studentName: 'Abha Shweta',
       level: 'phd',
-      title: 'Machine Learning Driven Centroid Localization Algorithm for Wireless Sensor Networks',
-      status: 'ongoing',
+      title: 'Wireless Sensor Networks',
+      status: 'continuing',
       startYear: 2022,
       endYear: undefined
     },
     {
       _id: 'sup2',
-      studentName: 'Akash Warade',
-      level: 'phd',
-      title: 'Improved 3D DV-Hop Algorithm Using Scatteredness Between Beacon Nodes',
+      studentName: 'Rupal Lahre',
+      level: 'mtech',
+      title: 'Blockchain-integrated Collaborative Intrusion Detection Systems',
       status: 'ongoing',
       startYear: 2023,
-      endYear: undefined
+      endYear: 2025
     },
     {
       _id: 'sup3',
-      studentName: 'Research Scholar 1',
+      studentName: 'Md. Tauseef',
       level: 'mtech',
-      title: 'IoT-based Environmental Monitoring and Data Analytics',
+      title: 'Energy-Efficient Connectivity in FANETs using Optimized Dragonfly Algorithm',
       status: 'ongoing',
-      startYear: 2024,
-      endYear: undefined
+      startYear: 2023,
+      endYear: 2025
     },
     {
       _id: 'sup4',
-      studentName: 'Research Scholar 2',
+      studentName: 'Akanksha Shakya',
       level: 'mtech',
-      title: 'Machine Learning Applications in Wireless Sensor Networks',
+      title: 'Trust-Aware GA-Enhanced Fuzzy Leach with Dead-Hole Detection',
       status: 'ongoing',
-      startYear: 2024,
-      endYear: undefined
+      startYear: 2023,
+      endYear: 2025
     },
     {
       _id: 'sup5',
-      studentName: 'Graduate Student 1',
-      level: 'btech',
-      title: 'Smart Agriculture Monitoring System using WSN',
+      studentName: 'Vikas Mani',
+      level: 'mtech',
+      title: 'Improved 3D DV-Hop based on Dynamic Differential Evolution Algorithm',
       status: 'completed',
-      startYear: 2023,
-      endYear: 2024
+      startYear: 2021,
+      endYear: 2023
     },
     {
       _id: 'sup6',
-      studentName: 'Graduate Student 2',
-      level: 'btech',
-      title: 'Real-time Air Quality Monitoring using IoT',
+      studentName: 'Sankhyesh Singh Thakur',
+      level: 'mtech',
+      title: 'Ant Colony Optimization Algorithm for Localization in WSNs',
       status: 'completed',
-      startYear: 2023,
+      startYear: 2021,
+      endYear: 2023
+    },
+    {
+      _id: 'sup7',
+      studentName: 'Aditi Agarwal',
+      level: 'mtech',
+      title: 'Localization using Machine Learning based Approximate Point in Triangle Technique',
+      status: 'completed',
+      startYear: 2022,
+      endYear: 2024
+    },
+    {
+      _id: 'sup8',
+      studentName: 'Kritika Tanwar',
+      level: 'mtech',
+      title: 'Machine Learning based Centroid Localization Algorithm',
+      status: 'completed',
+      startYear: 2022,
+      endYear: 2024
+    },
+    {
+      _id: 'sup9',
+      studentName: 'Arundhati Warade',
+      level: 'mtech',
+      title: 'Machine Learning based DV-Hop Algorithm',
+      status: 'completed',
+      startYear: 2022,
       endYear: 2024
     }
   ];

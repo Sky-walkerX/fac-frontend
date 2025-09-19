@@ -89,7 +89,7 @@ export default function TeachingSection() {
       level: 'undergraduate' as const,
       semester: 'fall' as const,
       year: 2024,
-      description: 'Introduction to compiler construction, lexical analysis, syntax analysis, semantic analysis, and code generation.'
+      description: 'Comprehensive study of compiler construction including lexical analysis, syntax analysis, semantic analysis, and code generation techniques.'
     },
     {
       _id: 'course2',
@@ -98,7 +98,7 @@ export default function TeachingSection() {
       level: 'undergraduate' as const,
       semester: 'spring' as const,
       year: 2024,
-      description: 'Fundamentals of computer networks, protocols, network architecture, and communication systems.'
+      description: 'Fundamentals of computer networking, protocols, network architecture, and modern communication systems.'
     },
     {
       _id: 'course3',
@@ -106,8 +106,8 @@ export default function TeachingSection() {
       courseCode: 'CS501',
       level: 'graduate' as const,
       semester: 'fall' as const,
-      year: 2023,
-      description: 'Advanced algorithmic techniques, complexity analysis, and optimization methods for complex computational problems.'
+      year: 2024,
+      description: 'Advanced algorithmic techniques, complexity analysis, and optimization methods for solving complex computational problems.'
     },
     {
       _id: 'course4',
@@ -116,7 +116,7 @@ export default function TeachingSection() {
       level: 'undergraduate' as const,
       semester: 'spring' as const,
       year: 2023,
-      description: 'Database design, SQL, transaction management, concurrency control, and database administration.'
+      description: 'Database design principles, SQL programming, transaction management, concurrency control, and database administration.'
     },
     {
       _id: 'course5',
@@ -125,7 +125,7 @@ export default function TeachingSection() {
       level: 'undergraduate' as const,
       semester: 'fall' as const,
       year: 2023,
-      description: 'Software development lifecycle, design patterns, testing methodologies, and project management.'
+      description: 'Software development lifecycle, design patterns, testing methodologies, project management, and modern software practices.'
     },
     {
       _id: 'course6',
@@ -133,8 +133,17 @@ export default function TeachingSection() {
       courseCode: 'CS305',
       level: 'undergraduate' as const,
       semester: 'spring' as const,
+      year: 2023,
+      description: 'Operating system principles, process and memory management, file systems, synchronization, and system programming.'
+    },
+    {
+      _id: 'course7',
+      courseName: 'Design and Analysis of Algorithms',
+      courseCode: 'CS306',
+      level: 'undergraduate' as const,
+      semester: 'fall' as const,
       year: 2022,
-      description: 'Operating system principles, process management, memory management, file systems, and system calls.'
+      description: 'Algorithm design techniques, complexity analysis, sorting and searching algorithms, graph algorithms, and dynamic programming.'
     }
   ];
 

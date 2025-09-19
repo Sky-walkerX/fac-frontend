@@ -8,10 +8,13 @@ import { Button } from '@/components/ui/button';
 
 const navigation = [
   { name: 'About', href: '#about' },
-  { name: 'Research', href: '#research' },
+  { name: 'Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Journals', href: '#journals' },
+  { name: 'Conferences', href: '#conferences' },
   { name: 'Teaching', href: '#teaching' },
   { name: 'Supervision', href: '#supervision' },
+  { name: 'Achievements', href: '#achievements' },
 ];
 
 export default function Navigation() {

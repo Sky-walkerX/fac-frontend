@@ -42,7 +42,7 @@ export default function Footer() {
     phone: '8587012012',
     office: 'Indian Institute of Information Technology, Lucknow',
     linkedIn: 'https://www.linkedin.com/in/abhinesh-kaushik-67a83647',
-    googleScholar: 'https://scholar.google.com/citations?user=KqxVnuwAAAAJ&hl=en&oi=ao',
+    googleScholar: 'https://scholar.google.com/citations?user=KqxVnuwAAAAJ',
     orcid: 'https://orcid.org/0000-0002-7864-6202',
     researchGate: undefined,
     website: undefined,
